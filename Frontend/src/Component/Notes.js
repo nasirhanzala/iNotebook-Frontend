@@ -10,7 +10,7 @@ const Notes = (props) => {
 
   const context = useContext(noteContext);
    const navigate = useNavigate();
- const { notes, deleteNote, getNote, editNote, addNote } = context;
+ const { notes, deleteNote, getNote, editNote } = context;
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -18,7 +18,7 @@ const Notes = (props) => {
   }else{
     navigate("/login")
   }
-  }, []);
+  }, [getNote, navigate]);
 
   const ref = useRef(null);
   const closeRef = useRef(null);
