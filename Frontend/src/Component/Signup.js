@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-    const navigate = useNavigate();
-  https://i-notebook-backendrepo.vercel.app
+  const navigate = useNavigate();
+
+  const host = "https://i-notebook-backendrepo.vercel.app";
 
   const [credentials, setCredentials] = useState({
     name: "",
@@ -34,17 +35,17 @@ const Signup = () => {
       }),
     });
 
- const json = await response.json();
-console.log(json);
+    const json = await response.json();
+    console.log(json);
 
-if (json.authtoken) {
-  localStorage.setItem("token", json.authtoken);
-  navigate("/");
-  console.log("Signup Successful");
-} else {
-  console.log("Invalid Credentials");
-  alert("Invalid Credentials");
-}
+    if (json.authtoken) {
+      localStorage.setItem("token", json.authtoken);
+      navigate("/");
+      console.log("Signup Successful");
+    } else {
+      console.log("Invalid Credentials");
+      alert("Invalid Credentials");
+    }
   };
 
   return (
