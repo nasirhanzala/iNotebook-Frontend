@@ -104,7 +104,7 @@ console.log(json);
     const element = notes[index];
     if(element._id === id){
       element.title = title;
-      element. description = description;
+      element.description = description;
       element.tag = tag
     }
     setNotes([...notes]);
