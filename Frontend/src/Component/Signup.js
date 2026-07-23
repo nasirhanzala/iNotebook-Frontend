@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
     const navigate = useNavigate();
-  const host = "http://localhost:5000";
+  https://i-notebook-backendrepo.vercel.app
 
   const [credentials, setCredentials] = useState({
     name: "",
