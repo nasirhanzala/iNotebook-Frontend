@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const navigate = useNavigate();
-    https://i-notebook-backendrepo.vercel.app
+  const navigate = useNavigate();
+
+  const host = "https://i-notebook-backendrepo.vercel.app";
+
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -19,28 +21,28 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // API call yahan hogi
-   const response = await fetch(`${host}/api/auth/login`, {
+    const response = await fetch(`${host}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-        body: JSON.stringify({
+      body: JSON.stringify({
         email: credentials.email,
         password: credentials.password,
       }),
     });
-      const json = await response.json();
+
+    const json = await response.json();
     console.log(json);
-     if (json.authtoken) {
+
+    if (json.authtoken) {
       localStorage.setItem("token", json.authtoken);
-        navigate("/");
+      navigate("/");
       console.log("Login Successful");
     } else {
       console.log("Invalid Credentials");
     }
   };
-     
 
   return (
     <div className="container mt-3">
